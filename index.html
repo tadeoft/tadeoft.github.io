@@ -39,15 +39,6 @@
             max-width: 300px;
         }
 
-        @media (max-width: 768px) {
-            .desktop-logo {
-                display: none;
-            }
-            .mobile-logo {
-                display: block;
-            }
-        }
-
         #image-container {
             max-width: 70vw;
             max-height: 80vh;
@@ -62,6 +53,29 @@
             display: block;
             user-select: none;
             -webkit-user-drag: none;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                left: 0;
+                right: 0;
+                display: flex;
+                justify-content: center;
+            }
+            .desktop-logo {
+                display: none;
+            }
+            .mobile-logo {
+                display: block;
+            }
+            #image-container {
+                max-width: 95vw;
+                width: 100%;
+                max-height: 90vh;
+            }
+            #portfolio-image {
+                max-height: 90vh;
+            }
         }
     </style>
 </head>
