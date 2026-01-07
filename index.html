@@ -21,21 +21,35 @@
 
         header {
             position: fixed;
-            top: 20px;
+            top: 10px;
             left: 20px;
             z-index: 10;
         }
 
-        h1 {
-            font-size: 16px;
-            font-weight: 400;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
+        .desktop-logo {
+            height: 120px;
+            width: auto;
+            display: block;
+        }
+
+        .mobile-logo {
+            display: none;
+            width: 80vw;
+            height: auto;
+            max-width: 300px;
+        }
+
+        @media (max-width: 768px) {
+            .desktop-logo {
+                display: none;
+            }
+            .mobile-logo {
+                display: block;
+            }
         }
 
         #image-container {
-            max-width: 90vw;
+            max-width: 70vw;
             max-height: 80vh;
             display: flex;
             justify-content: center;
@@ -54,7 +68,8 @@
 <body>
 
     <header>
-        <h1>Tadeo Ferreyra Turchi</h1>
+        <img src="logo.png" alt="Tadeo Ferreyra Turchi" class="desktop-logo">
+        <img src="logo-mobile.png" alt="Tadeo Ferreyra Turchi" class="mobile-logo">
     </header>
 
     <div id="image-container">
