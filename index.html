@@ -63,25 +63,40 @@
 
     <script>
         let images = [];
+        let currentIndex = 0;
         const imgElement = document.getElementById('portfolio-image');
 
         async function init() {
             try {
                 const response = await fetch('images.json');
                 images = await response.json();
-                showRandomImage();
+                shuffleImages();
+                showNextImage();
             } catch (error) {
                 console.error('Error loading images.json:', error);
             }
         }
 
-        function showRandomImage() {
-            if (images.length === 0) return;
-            const randomIndex = Math.floor(Math.random() * images.length);
-            imgElement.src = images[randomIndex];
+        function shuffleImages() {
+            for (let i = images.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [images[i], images[j]] = [images[j], images[i]];
+            }
         }
 
-        window.addEventListener('click', showRandomImage);
+        function showNextImage() {
+            if (images.length === 0) return;
+
+            if (currentIndex >= images.length) {
+                shuffleImages();
+                currentIndex = 0;
+            }
+
+            imgElement.src = images[currentIndex];
+            currentIndex++;
+        }
+
+        window.addEventListener('click', showNextImage);
         
         init();
     </script>
