@@ -16,7 +16,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
+            cursor: default;
         }
 
         header {
@@ -96,7 +96,7 @@
             currentIndex++;
         }
 
-        window.addEventListener('click', showNextImage);
+        imgElement.addEventListener('click', showNextImage);
         
         init();
     </script>
